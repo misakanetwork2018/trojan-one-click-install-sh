@@ -110,7 +110,7 @@ fi
 echo -e "\033[42;34mInstall Trojan-Go\033[0m"
 wget -O /tmp/trojan-go-linux-amd64.zip $trojan_download_url
 mkdir /usr/local/trojan-go
-unzip /tmp/trojan-go-linux-amd64.zip -d /usr/local/trojan-go/
+unzip -o /tmp/trojan-go-linux-amd64.zip -d /usr/local/trojan-go/
 
 #写入Trojan-Go配置
 cat > /usr/local/trojan-go/server.yaml <<EOF
