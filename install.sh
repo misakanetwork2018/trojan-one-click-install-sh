@@ -70,10 +70,10 @@ function instdpec()
 	if [ "$1" == "CentOS" ] || [ "$1" == "CentOS7" ];then
 		$PM -y groupinstall "Development Tools"
 		$PM -y install epel-release
-		$PM -y install wget jq curl unzip cron
+		$PM -y install wget jq curl unzip cron socat
 	elif [ "$1" == "Debian" ] || [ "$1" == "Raspbian" ] || [ "$1" == "Ubuntu" ];then
 		$PM update
-		$PM -y install wget jq curl unzip cron
+		$PM -y install wget jq curl unzip cron socat
 	else
 		echo "The shell can be just supported to install ssr on Centos, Ubuntu and Debian."
 		exit 1
