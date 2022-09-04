@@ -144,6 +144,7 @@ After=network.target nss-lookup.target
 
 [Service]
 User=nobody
+WorkingDirectory=/usr/local/trojan-go
 CapabilityBoundingSet=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
 AmbientCapabilities=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
 NoNewPrivileges=true
@@ -219,6 +220,8 @@ if [ -n "$email" ]; then
         --reloadcmd     "systemctl restart trojan-go && systemctl restart trojan-api"
         chown nobody:users /usr/local/trojan-go/private.key
         chown nobody:users /usr/local/trojan-go/public.crt
+        chmod 755 /usr/local/trojan-go/private.key
+        chmod 755 /usr/local/trojan-go/public.crt
     fi
 fi
 
