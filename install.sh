@@ -138,14 +138,20 @@ EOF
 #配置Systemd
 cat > /etc/systemd/system/trojan-go.service <<EOF
 [Unit]
-Description=Trojan Go Server
-After=network.target
-Wants=network.target
+Description=Trojan-Go - An unidentifiable mechanism that helps you bypass GFW
+Documentation=https://p4gefau1t.github.io/trojan-go/
+After=network.target nss-lookup.target
+
 [Service]
-Restart=on-failure
-Type=simple
-PIDFile=/var/run/trojan.pid
+User=nobody
+CapabilityBoundingSet=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
+AmbientCapabilities=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
+NoNewPrivileges=true
 ExecStart=/usr/local/trojan-go/trojan-go -config /usr/local/trojan-go/server.yaml
+Restart=on-failure
+RestartSec=10s
+LimitNOFILE=infinity
+
 [Install]
 WantedBy=multi-user.target
 EOF
