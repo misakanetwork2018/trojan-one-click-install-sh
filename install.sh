@@ -217,6 +217,8 @@ if [ -n "$email" ]; then
         --key-file       /usr/local/trojan-go/private.key  \
         --fullchain-file /usr/local/trojan-go/public.crt \
         --reloadcmd     "systemctl restart trojan-go && systemctl restart trojan-api"
+        chown nobody:users /usr/local/trojan-go/private.key
+        chown nobody:users /usr/local/trojan-go/public.crt
     fi
 fi
 
