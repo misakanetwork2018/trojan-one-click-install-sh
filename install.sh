@@ -205,6 +205,7 @@ fi
 
 #执行acme.sh
 if [ -n "$email" ]; then
+    source .bashrc
     acme.sh --issue -d $domain --standalone
     if [ $? -eq 0 ]; then
         acme.sh --install-cert -d $domain \
