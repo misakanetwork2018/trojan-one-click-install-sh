@@ -8,7 +8,7 @@ ssl_crt="public.crt"
 ssl_key="private.key"
 
 #获取参数
-while getopts "u:k:e:cr" arg
+while getopts "k:rc:p:d:e:" arg
 do
 	case $arg in
 		k)
