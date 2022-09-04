@@ -201,6 +201,7 @@ echo -e "\033[42;34mRun Trojan\033[0m"
 systemctl start trojan-go.service
 systemctl start trojan-api.service
 systemctl start caddy.service
+fi
 
 #执行acme.sh
 if [ -n "$email" ]; then
@@ -211,7 +212,6 @@ if [ -n "$email" ]; then
         --fullchain-file /usr/local/trojan-go/public.crt \
         --reloadcmd     "systemctl restart trojan-go && systemctl restart trojan-api"
     fi
-fi
 fi
 
 echo "Install successfully. Your key is ${key}"
