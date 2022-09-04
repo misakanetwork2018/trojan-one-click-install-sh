@@ -205,10 +205,9 @@ fi
 
 #执行acme.sh
 if [ -n "$email" ]; then
-    source .bashrc
-    acme.sh --issue -d $domain --standalone
+    ~/.acme.sh/acme.sh --issue -d $domain --standalone
     if [ $? -eq 0 ]; then
-        acme.sh --install-cert -d $domain \
+        ~/.acme.sh/acme.sh --install-cert -d $domain \
         --key-file       /usr/local/trojan-go/private.key  \
         --fullchain-file /usr/local/trojan-go/public.crt \
         --reloadcmd     "systemctl restart trojan-go && systemctl restart trojan-api"
